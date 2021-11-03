@@ -9,6 +9,7 @@ import com.vodafone.model.IotData;
 import com.vodafone.repository.IotRepository;
 import com.vodafone.utils.CsvProcessor;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,7 +43,11 @@ public class IotServiceTest {
         iotRequestDTO = new IotRequestDTO();
         iotRequestDTO.setFilepath("");
 
+    }
 
+    @AfterAll
+    public static void close() {
+        csvProcessorMockedStatic.close();
     }
 
     @Test
